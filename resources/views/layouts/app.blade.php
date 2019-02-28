@@ -13,7 +13,7 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                color: #111;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -62,6 +62,12 @@
                 margin-bottom: 30px;
             }
         </style>
+
+        <script>
+            window.AAT = {
+                gmapsKey: '{{ config('services.google-maps.api-key') }}',
+            };
+        </script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">

@@ -5,7 +5,11 @@
         Albert's Avocado Toast 
     </div>
 
-    <div class="links">
-        <a href="/restaurants">Find a Restaurant</a>
-    </div>
+    <p>
+    @todo map here
+    </p>
+
+    <p>
+    @todo list of restaurants near me here
+    </p>
 @endsection

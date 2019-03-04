@@ -1,18 +1,22 @@
 <template>
     <div class="flex flex-col">
-		<gmap-map
-			:center="center"
-			style="height: 430px;"
-		>
-			<gmap-marker
-				v-for="(restaurant, index) in restaurants"
-				:icon="getMarkerColor(restaurant)"
-				:key="index"
-				:position="getPosition(restaurant)"
-				@click="setSelectedRestaurant(restaurant)"
-			>
-			</gmap-marker>
-		</gmap-map>
+      <gmap-map
+        :center="center"
+        :zoom="17"
+        style="height: 430px;"
+      >
+        <gmap-marker
+          v-for="(restaurant, index) in restaurants"
+          :key="index"
+          :position="getPosition(restaurant)"
+          @click="setSelectedRestaurant(restaurant)"
+        >
+        </gmap-marker>
+      </gmap-map>
+
+      <div class="mt-12">
+          @todo list of restaurants here
+      </div>
     </div>
 </template>
 
@@ -30,7 +34,7 @@ export default {
       center: {
         lat: 30,
         lng: -82,
-      }, 
+      },
     };
   },
 

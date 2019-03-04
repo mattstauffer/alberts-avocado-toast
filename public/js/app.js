@@ -1785,6 +1785,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     restaurants: {
@@ -1799,17 +1808,26 @@ __webpack_require__.r(__webpack_exports__);
       center: {
         lat: 30,
         lng: -82
-      }
+      },
+      closeRestaurants: [],
+      loadingLocation: true
     };
   },
   mounted: function mounted() {
     var _this = this;
 
     navigator.geolocation.getCurrentPosition(function (position) {
+      _this.loadingLocation = false;
       _this.center = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+      window.axios.request({
+        url: "/api/restaurants/near?latitude=".concat(position.coords.latitude, "&longitude=").concat(position.coords.longitude),
+        method: 'get'
+      }).then(function (response) {
+        _this.closeRestaurants = response.data;
+      });
     });
   },
   methods: {
@@ -37834,9 +37852,29 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "mt-12" }, [
-        _vm._v("\n      @todo list of restaurants here\n  ")
-      ])
+      _vm.loadingLocation
+        ? _c("div", { staticClass: "mt-12" }, [
+            _vm._v("\n    Loading your location...\n  ")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.loadingLocation
+        ? _c("div", { staticClass: "mt-12" }, [
+            _c("span", { staticClass: "block font-bold mb-4 text-lg" }, [
+              _vm._v("5 closest restaurants:")
+            ]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              _vm._l(_vm.closeRestaurants, function(restaurant, index) {
+                return _c("li", [
+                  _vm._v("\n        " + _vm._s(restaurant.name) + "\n      ")
+                ])
+              }),
+              0
+            )
+          ])
+        : _vm._e()
     ],
     1
   )

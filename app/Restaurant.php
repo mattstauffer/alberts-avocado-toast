@@ -8,6 +8,8 @@ class Restaurant extends Model
 {
     protected $guarded = ['id'];
 
+    protected $hidden = ['location'];
+
     public function scopeClosestTo($query, $latitude, $longitude)
     {
         return $query->orderByRaw("

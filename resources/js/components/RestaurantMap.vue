@@ -7,6 +7,7 @@
       >
         <gmap-marker
           v-for="(restaurant, index) in restaurants"
+          :icon="getMarkerColor(restaurant)"
           :key="index"
           :position="getPosition(restaurant)"
           @click="setSelectedRestaurant(restaurant)"
@@ -46,6 +47,7 @@ export default {
       },
       closeRestaurants: [],
       loadingLocation: true,
+      selectedRestaurant: null,
     };
   },
 
@@ -73,6 +75,18 @@ export default {
     getPosition(restaurant) {
       return { lat: restaurant.latitude, lng: restaurant.longitude };
     },
+
+    setSelectedRestaurant(restaurant) {
+      this.selectedRestaurant = restaurant;
+    },
+
+    getMarkerColor(restaurant) {
+      if (this.selectedRestaurant && this.selectedRestaurant.id == restaurant.id) {
+        return null;
+      }
+
+      return "https://maps.google.com/mapfiles/ms/icons/ltblue-dot.png";
+    }
   }
 };
 </script>

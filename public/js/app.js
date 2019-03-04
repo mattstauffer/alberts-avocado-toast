@@ -1794,6 +1794,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     restaurants: {
@@ -1810,7 +1811,8 @@ __webpack_require__.r(__webpack_exports__);
         lng: -82
       },
       closeRestaurants: [],
-      loadingLocation: true
+      loadingLocation: true,
+      selectedRestaurant: null
     };
   },
   mounted: function mounted() {
@@ -1836,6 +1838,16 @@ __webpack_require__.r(__webpack_exports__);
         lat: restaurant.latitude,
         lng: restaurant.longitude
       };
+    },
+    setSelectedRestaurant: function setSelectedRestaurant(restaurant) {
+      this.selectedRestaurant = restaurant;
+    },
+    getMarkerColor: function getMarkerColor(restaurant) {
+      if (this.selectedRestaurant && this.selectedRestaurant.id == restaurant.id) {
+        return null;
+      }
+
+      return "https://maps.google.com/mapfiles/ms/icons/ltblue-dot.png";
     }
   }
 });
@@ -37841,7 +37853,10 @@ var render = function() {
         _vm._l(_vm.restaurants, function(restaurant, index) {
           return _c("gmap-marker", {
             key: index,
-            attrs: { position: _vm.getPosition(restaurant) },
+            attrs: {
+              icon: _vm.getMarkerColor(restaurant),
+              position: _vm.getPosition(restaurant)
+            },
             on: {
               click: function($event) {
                 return _vm.setSelectedRestaurant(restaurant)

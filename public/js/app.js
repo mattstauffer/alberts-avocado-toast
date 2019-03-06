@@ -1795,6 +1795,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     restaurants: {
@@ -1830,6 +1831,9 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         _this.closeRestaurants = response.data;
       });
+    });
+    this.$refs.mapRef.$mapPromise.then(function (map) {
+      map.data.loadGeoJson('./service-areas.geojson');
     });
   },
   methods: {
@@ -37847,6 +37851,7 @@ var render = function() {
       _c(
         "gmap-map",
         {
+          ref: "mapRef",
           staticStyle: { height: "430px" },
           attrs: { center: _vm.center, zoom: 17 }
         },

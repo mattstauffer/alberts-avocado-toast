@@ -1,6 +1,7 @@
 <?php
 
 use App\Restaurant;
+use App\ServiceRegion;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,8 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(Restaurant::class, 50)->create([
-
-        ]);
+        factory(Restaurant::class, 50)->create();
+        factory(ServiceRegion::class, 20)->create();
     }
 }

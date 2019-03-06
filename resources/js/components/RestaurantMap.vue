@@ -3,6 +3,7 @@
       <gmap-map
         :center="center"
         :zoom="17"
+        ref="mapRef"
         style="height: 430px;"
       >
         <gmap-marker
@@ -68,6 +69,10 @@ export default {
         .then(response => {
           this.closeRestaurants = response.data;
         });
+    });
+
+    this.$refs.mapRef.$mapPromise.then((map) => {
+      map.data.loadGeoJson('./service-areas.geojson');
     });
   },
 

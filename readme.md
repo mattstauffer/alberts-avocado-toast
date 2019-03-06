@@ -1,4 +1,4 @@
-# Albert's Avocado Toast
+# Albert's Avocado Toast 🥑🍞
 
 Made to show examples of some common geospatial tasks for Laracon Online.
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col">
+    <div class="bg-white border-2 flex flex-col p-4">
       <gmap-map
         :center="center"
         :zoom="17"

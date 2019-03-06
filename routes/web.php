@@ -11,9 +11,7 @@
 |
 */
 
-Route::view('/', 'welcome');
-
-Route::get('restaurants', function () {
+Route::get('/', function () {
     return view('restaurants.index', [
         'restaurants' => App\Restaurant::all(),
     ]);

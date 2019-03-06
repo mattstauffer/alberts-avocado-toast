@@ -37846,7 +37846,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex flex-col" },
+    { staticClass: "bg-white border-2 flex flex-col p-4" },
     [
       _c(
         "gmap-map",

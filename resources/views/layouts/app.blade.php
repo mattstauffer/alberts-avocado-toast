@@ -20,13 +20,17 @@
             };
         </script>
     </head>
-    <body>
-        <div id="app">
-            <a href="/" class="block mb-4 mt-8 no-underline text-black hover:text-red text-5xl text-center">
-                Albert's Avocado Toast 🥑🍞
+    <body class="bg-grey-lighter m-0 p-0">
+        <div id="app" class="container mx-auto pt-8">
+            <a href="/" class="block max-w-full mb-4 no-underline text-black hover:text-red text-5xl text-center">
+                <img src="/images/logo.png" alt="Albert's Avocado Toast Logo">
             </a>
 
             @yield('body')
+
+            <div class="border-t-2 mt-12 pt-8">
+                Not copyright at all because this is a fake company ❤️
+            </div>
         </div>
 
         <script src="/js/app.js"></script>

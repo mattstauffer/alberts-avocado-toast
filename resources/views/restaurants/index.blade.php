@@ -6,10 +6,8 @@
             Find a restaurant!
         </div>
 
-        <p>
-            <restaurant-map
-                :restaurants="{{ json_encode($restaurants) }}"
-            ></restaurant-map>
-        </p>
+        <restaurant-map
+            :restaurants="{{ json_encode($restaurants) }}"
+        ></restaurant-map>
     </div>
 @endsection
